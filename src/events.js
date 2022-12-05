@@ -7,6 +7,6 @@ class Events {
   }
 
   handleBtnDayOne() {
-    this.output.value = DayOne.execute();
+    this.output.value = DayOne.executePartOne();
   }
 }
