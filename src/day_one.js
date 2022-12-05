@@ -12,5 +12,4 @@ class DayOne {
 
     return { part_one: calories[0], part_two: calories.slice(0, 3).reduce((a, b) => a + b, 0) };
   }
-
 }
