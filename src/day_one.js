@@ -1,6 +1,6 @@
 class DayOne {
   
-  static executePartOne() {
+  static execute() {
     var elves = day_one_data.split('\n\n');
     var calories = new Array();
 
@@ -10,7 +10,7 @@ class DayOne {
 
     calories.sort().reverse();
 
-    return calories[0];
+    return { part_one: calories[0], part_two: calories[0] + calories[1] + calories[2] };
   }
 
 }
