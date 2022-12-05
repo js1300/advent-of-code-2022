@@ -16,8 +16,7 @@ class DayTwo {
     return { part_one: total_score, part_two: converted_total_score };
   }
 
-  // TODO: refactor these
-
+  // TODO: refactor this
   static convertOutcomeToSelection(game) {
     switch(game[0]) {
       case "A":
@@ -56,6 +55,7 @@ class DayTwo {
     }
   }
 
+  // TODO: refactor this
   static getSelectionScore(game) {
     switch(game[2]) {
       case "X":
@@ -68,40 +68,10 @@ class DayTwo {
   }
 
   static getResultScore(game) {
-    switch(game[0]) {
-      case "A":
-        switch(game[2]) {
-          case "X":
-            return 3;
-          case "Y":
-            return 6;
-          case "Z":
-            return 0;
-        }
+    var cpu = {A: 1, B: 0, C: 2};
+    var player = {X: 0, Y: 1, Z: 2};
+    var scores = [0, 3, 6];
 
-        break;
-      case "B":
-        switch(game[2]) {
-          case "X":
-            return 0;
-          case "Y":
-            return 3;
-          case "Z":
-            return 6;
-        }
-
-        break;
-      case "C":
-        switch(game[2]) {
-          case "X":
-            return 6;
-          case "Y":
-            return 0;
-          case "Z":
-            return 3;
-        }
-
-        break;
-    }
+    return scores[(cpu[game[0]] + player[game[2]]) % 3];
   }
 }
