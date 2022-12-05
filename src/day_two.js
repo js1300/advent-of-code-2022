@@ -24,16 +24,10 @@ class DayTwo {
     return game[0] + " " + selections[(cpu[game[0]] + player[game[2]]) % 3];
   }
 
-  // TODO: refactor this
   static getSelectionScore(game) {
-    switch(game[2]) {
-      case "X":
-        return 1;
-      case "Y":
-        return 2;
-      case "Z":
-        return 3;
-    }
+    var scores = {X: 1, Y: 2, Z: 3};
+
+    return scores[game[2]];
   }
 
   static getResultScore(game) {
