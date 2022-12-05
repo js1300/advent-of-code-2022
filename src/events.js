@@ -1,14 +1,14 @@
 class Events {
   constructor() {
-    var btnDayOne = document.getElementById("btnDayOne");
+    var btnDay = document.getElementById("btnDay");
     this.output_part_one = document.getElementById("output_part_one");
     this.output_part_two = document.getElementById("output_part_two");
 
-    btnDayOne.addEventListener("click", this.handleBtnDayOne.bind(this));
+    btnDay.addEventListener("click", this.handleBtnDay.bind(this));
   }
 
-  handleBtnDayOne() {
-    var outputs = DayOne.execute();
+  handleBtnDay() {
+    var outputs = DayTwo.execute();
     this.output_part_one.value = outputs.part_one;
     this.output_part_two.value = outputs.part_two;
   }
