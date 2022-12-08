@@ -3,6 +3,7 @@ class DayFour {
   static execute() {
     var pairs = day_four_data.split('\n');
     var redundancy_count = 0;
+    var overlap_count = 0;
 
     pairs.forEach((pair) => {
       var elves = pair.split(",");
@@ -16,8 +17,12 @@ class DayFour {
       if ((elf_one_lower <= elf_two_lower && elf_one_upper >= elf_two_upper) || (elf_two_lower <= elf_one_lower && elf_two_upper >= elf_one_upper)) {
         redundancy_count += 1;
       }
+
+      if (elf_one_upper >= elf_two_lower && elf_two_upper >= elf_one_lower) {
+        overlap_count += 1;
+      }
     });
 
-    return { part_one: redundancy_count, part_two: 0 };
+    return { part_one: redundancy_count, part_two: overlap_count };
   }
 }
