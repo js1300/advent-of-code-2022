@@ -2,7 +2,11 @@ class DaySix {
 
   static execute() {
     var data = day_six_data;
-    var scan_length = 4;
+    
+    return { part_one: this.scan_message(data, 4), part_two: this.scan_message(data, 14) };
+  }
+
+  static scan_message(data, scan_length) {
     var first_marker = 0;
 
     for (var i = 0; i < data.length - scan_length; i++) {
@@ -22,11 +26,11 @@ class DaySix {
 
       if (!match_found) {
         first_marker = i + scan_length;
-        
+
         break;
       }
     }
 
-    return { part_one: first_marker, part_two: 0 };
+    return first_marker;
   }
 }
