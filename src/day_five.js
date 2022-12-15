@@ -9,18 +9,33 @@ class DayFive {
 
     moves.forEach((move) => {
       for (var i = 0; i < move[0]; i++) {
-        var crate = stacks[move[1] - 1].pop();
-        stacks[move[2] - 1].push(crate);
+        stacks[move[2] - 1].push(stacks[move[1] - 1].pop());
       }
     });
 
     var part_one_message = "";
-
     stacks.forEach((stack) => {
       part_one_message += stack[stack.length - 1];
     });
 
-    return { part_one: part_one_message, part_two: 0 };
+    stacks = this.parse_stacks(stack_data);
+
+    moves.forEach((move) => {
+      var crates = new Array();
+
+      for (var i = 0; i < move[0]; i++) {
+        crates.push(stacks[move[1] - 1].pop()); 
+      }
+
+      stacks[move[2] - 1] = stacks[move[2] - 1].concat(crates.reverse());
+    });
+
+    var part_two_message = "";
+    stacks.forEach((stack) => {
+      part_two_message += stack[stack.length - 1];
+    });
+
+    return { part_one: part_one_message, part_two: part_two_message };
   }
 
   static parse_stacks(stack_data) {
