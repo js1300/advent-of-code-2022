@@ -8,7 +8,7 @@ class Events {
   }
 
   handleBtnDay() {
-    var outputs = DayTen.execute();
+    var outputs = DayEleven.execute();
     this.output_part_one.value = outputs.part_one;
     this.output_part_two.value = outputs.part_two;
   }
